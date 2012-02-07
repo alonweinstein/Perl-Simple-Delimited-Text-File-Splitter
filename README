@@ -1,0 +1,39 @@
+This little Perl script takes a delimited text file which has tabular data in it -- first row with columns followed by any number of rows -- and splits it to any number of file, each containing X number of rows, but always keeping the first row as the columns row.
+
+The script can take one or two arguments: the first argument must be the filename of the source file. The second argument can be a the number of rows to put in each file. If the number of lines per file is not given 5000 is used as the default.
+
+For example, if you have the following data file in the file "names_and_ages.txt":
+
+Name	Age
+Mary	20
+Bob		30
+Jake	12
+Tod		45
+Heidi	87
+Tom		54
+
+
+and you run the script:
+
+./psplit.pl names_and_ages.txt 2
+
+You'll get three files as an output:
+
+names_and_ages1.txt:
+Name	Age
+Mary	20
+Bob		30
+
+names_and_ages2.txt:
+Name	Age
+Jake	12
+Tod		45
+
+names_and_ages3.txt:
+Name	Age
+Heidi	87
+Tom		54
+
+
+
+I wrote this to solve a specific problem I had, it's my first attempt at using Perl, so I'm sure there must be better ways to do this.
